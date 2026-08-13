@@ -1,84 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="has-navbar-fixed-top">
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation — a tutorial at AACL-IJCNLP 2026.">
+  <meta name="keywords"
+        content="Diffusion Language Models, DLM, Non-Autoregressive Generation, AACL-IJCNLP 2026, Tutorial, NLP">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>Diffusion Language Models — AACL-IJCNLP 2026 Tutorial</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+  <!-- Open Graph / Twitter card -->
+  <meta property="og:title" content="Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation">
+  <meta property="og:description" content="Tutorial at AACL-IJCNLP 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dllm-aacl.github.io/">
+  <meta name="twitter:card" content="summary">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/index.js"></script>
+
+  <style>
+    /* --- presenters --- */
+    .presenter-profiles {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .presenter-card {
+      text-align: center;
+      flex: 0 1 200px;
+    }
+
+    .presenter-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .presenter-image:hover {
+      transform: scale(1.05);
+    }
+
+    .presenter-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: hsl(204, 86%, 45%);
+    }
+
+    .presenter-affiliation {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.3;
+    }
+
+    /* --- venue line under the title --- */
+    .venue-line {
+      color: #555;
+      font-weight: 600;
+    }
+
+    /* --- schedule table --- */
+    .schedule-table {
+      width: 100%;
+    }
+
+    .schedule-table td {
+      vertical-align: top;
+    }
+
+    .schedule-table td.time {
+      white-space: nowrap;
+      width: 8.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .schedule-table td.speaker {
+      white-space: nowrap;
+      color: #666;
+      text-align: right;
+    }
+
+    .schedule-break td {
+      background: #fafafa;
+      color: #777;
+    }
+
+    /* --- reading list --- */
+    .reading-list p {
+      margin-bottom: 0.9rem;
+    }
+
+    .reading-list .meta {
+      color: #666;
+    }
+
+    /* --- in-page nav --- */
+    .navbar-item.is-active {
+      font-weight: 600;
+    }
+
+    section[id],
+    .presenter-profiles[id] {
+      scroll-margin-top: 5rem;
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
+  <div id="mainNavbar" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#schedule">Schedule</a>
+      <a class="navbar-item" href="#presenters">Presenters</a>
+      <a class="navbar-item" href="#reading-list">Reading List</a>
+      <a class="navbar-item" href="#contact">Contact</a>
     </div>
-
   </div>
 </nav>
 
@@ -88,161 +151,64 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-            </span>
-          </div>
+          <h1 class="title is-2 publication-title">Diffusion Language Models</h1>
+          <h2 class="title is-4 publication-title">Foundations and Frontiers of Non-Autoregressive Language Generation</h2>
+          <h2 class="title is-5 publication-title venue-line">
+            Tutorial at <a href="https://2026.aaclnet.org/">AACL-IJCNLP 2026</a>
+          </h2>
+          <!-- TODO: 日付が確定したら "Date: TBA" を差し替え -->
+          <h2 class="title is-6 publication-title venue-line">Hengqin, China &middot; Date: TBA</h2>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+          <!-- Presenters (hero thumbnails) -->
+          <div class="presenter-profiles" id="presenters">
+            <div class="presenter-card">
+              <img src="./static/images/oba.jpg" alt="Daisuke Oba" class="presenter-image">
+              <a href="https://daioba.github.io/"><div class="presenter-name">Daisuke Oba</div></a>
+              <div class="presenter-affiliation">Institute of Science Tokyo</div>
+            </div>
+            <div class="presenter-card">
+              <img src="./static/images/bollegala.jpg" alt="Danushka Bollegala" class="presenter-image">
+              <a href="https://danushka.net/publication.en.html"><div class="presenter-name">Danushka Bollegala</div></a>
+              <div class="presenter-affiliation">University of Liverpool<br>Amazon</div>
+            </div>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- 資料が公開されたらコメントアウトを外す -->
+              <!--
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="./static/slides/slides.pdf"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>Slides</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="https://www.youtube.com/watch?v=TODO"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Recording</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                <a href="https://aclanthology.org/TODO/"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Tutorial Proposal</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+              -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href="#contact"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
+                  <span class="icon"><i class="fas fa-envelope"></i></span>
+                  <span>Contact</span>
+                </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
-
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
         </div>
       </div>
     </div>
@@ -250,206 +216,129 @@
 </section>
 
 
-<section class="section">
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Diffusion language models (DLMs) have recently emerged as a non-autoregressive approach
+            to language generation, enabling parallel, iterative, and refinement-based decoding
+            beyond the conventional left-to-right paradigm.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            This tutorial offers the NLP community a technical map of this emerging field: starting
+            from diffusion formulations for text, we clarify their connections to autoregressive
+            language modeling, masked language modeling, and earlier iterative generation methods.
+            We then survey recent progress in large-scale DLMs, efficient inference, training
+            objectives, and post-training, including reinforcement learning for reasoning and
+            alignment.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Throughout the tutorial, we treat DLMs not as a solved replacement for autoregressive
+            language models, but as a rapidly developing paradigm whose efficiency claims,
+            controllability, practical assessment, and deployment implications require careful
+            examination. We close by discussing representative open directions, from broader
+            formulations such as flow-based language modeling to reliability, safety, and social
+            bias as key requirements for the social acceptability of DLMs.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
+<section class="section" id="schedule">
   <div class="container is-max-desktop">
-
     <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Schedule</h2>
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+          <p>The date, room, and detailed timetable will be announced here. <strong>TBA</strong></p>
+          <!-- 時間割が決まったら下のテーブルのコメントを外して埋める
+          <p><strong>Date TBA &middot; Room TBA</strong> (all times are local time)</p>
+          <table class="table is-fullwidth schedule-table">
+            <tbody>
+              <tr>
+                <td class="time"><strong>9:00 – 9:15</strong></td>
+                <td>Introduction and motivation</td>
+                <td class="speaker">Daisuke Oba</td>
+              </tr>
+              <tr class="schedule-break">
+                <td class="time"><strong>10:30 – 11:00</strong></td>
+                <td>Coffee break</td>
+                <td class="speaker"></td>
+              </tr>
+              <tr>
+                <td class="time"><strong>11:45 – 12:30</strong></td>
+                <td>Open problems, Q&amp;A</td>
+                <td class="speaker">All</td>
+              </tr>
+            </tbody>
+          </table>
+          -->
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+  </div>
+</section>
 
-    <!-- Animation. -->
+
+<section class="section" id="reading-list">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Reading List</h2>
+        <div class="content has-text-justified reading-list">
+          <p>The papers referenced in the tutorial will be listed here. <strong>TBA</strong></p>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
+          <!-- 論文が固まったら、セクション見出しごとに下のフォーマットで並べる
+          <h3 class="title is-5">Foundations</h3>
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            <strong><a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener">Paper title</a></strong><br>
+            <span class="meta">Author et al., Year — Venue</span>
           </p>
+          -->
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
+  </div>
+</section>
 
 
-    <!-- Concurrent Work. -->
+<section class="section" id="contact">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Contact</h2>
         <div class="content has-text-justified">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+            Questions about the tutorial are welcome. Please get in touch with
+            <a href="https://daioba.github.io/">Daisuke Oba</a> or
+            <a href="https://danushka.net/">Danushka Bollegala</a>.
+            <!-- TODO: 公開してよい連絡先メールがあれば mailto: に差し替え -->
           </p>
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <h2 class="title is-3">BibTeX</h2>
+    <p>The citation will be added once the tutorial abstract appears in the ACL Anthology. <strong>TBA</strong></p>
+    <!-- Anthology 公開後に下を有効化して正式な bibtex に差し替え
+    <pre><code>@inproceedings{oba-bollegala-2026-diffusion,
+  title     = {Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation},
+  author    = {Oba, Daisuke and Bollegala, Danushka},
+  booktitle = {Proceedings of the 2026 Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics: Tutorial Abstracts},
+  year      = {2026},
 }</code></pre>
+    -->
   </div>
 </section>
 
@@ -457,11 +346,7 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/dllm-aacl/dllm-aacl.github.io" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -472,13 +357,7 @@
             This website is licensed under a <a rel="license"
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            It is built on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> website template.
           </p>
         </div>
       </div>
