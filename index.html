@@ -78,6 +78,46 @@
       font-weight: 600;
     }
 
+    /* --- hero: tighten the gap above the session info --- */
+    .hero .hero-body {
+      padding-bottom: 1.5rem;
+    }
+
+    /* --- session info (date / time / place) --- */
+    .content .session-info {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 2rem;
+      row-gap: 0.65rem;
+      margin-bottom: 1.75rem;
+      padding: 1.1rem 1.5rem;
+      border-left: 3px solid hsl(204, 86%, 45%);
+      background: #f8f9fa;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .content .session-info dt {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      line-height: 1.9;
+    }
+
+    .content .session-info dd {
+      margin-left: 0;
+      font-weight: 600;
+      color: #363636;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .session-info .note {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
     /* --- schedule table --- */
     .schedule-table {
       width: 100%;
@@ -137,11 +177,9 @@
   </div>
   <div id="mainNavbar" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#abstract">Abstract</a>
-      <a class="navbar-item" href="#schedule">Schedule</a>
+      <a class="navbar-item" href="#overview">Overview</a>
       <a class="navbar-item" href="#presenters">Presenters</a>
       <a class="navbar-item" href="#reading-list">Reading List</a>
-      <a class="navbar-item" href="#contact">Contact</a>
     </div>
   </div>
 </nav>
@@ -157,8 +195,6 @@
           <h2 class="title is-5 publication-title venue-line">
             Tutorial at <a href="https://2026.aaclnet.org/">AACL-IJCNLP 2026</a>
           </h2>
-          <!-- TODO: 日付が確定したら "Date: TBA" を差し替え -->
-          <h2 class="title is-6 publication-title venue-line">Hengqin, China &middot; Date: TBA</h2>
 
           <!-- Presenters (hero thumbnails) -->
           <div class="presenter-profiles" id="presenters">
@@ -200,13 +236,6 @@
                 </a>
               </span>
               -->
-              <span class="link-block">
-                <a href="#contact"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-envelope"></i></span>
-                  <span>Contact</span>
-                </a>
-              </span>
             </div>
           </div>
 
@@ -217,49 +246,27 @@
 </section>
 
 
-<section class="section" id="abstract">
+<section class="section pt-0" id="schedule">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Diffusion language models (DLMs) have recently emerged as a non-autoregressive approach
-            to language generation, enabling parallel, iterative, and refinement-based decoding
-            beyond the conventional left-to-right paradigm.
-          </p>
-          <p>
-            This tutorial offers the NLP community a technical map of this emerging field: starting
-            from diffusion formulations for text, we clarify their connections to autoregressive
-            language modeling, masked language modeling, and earlier iterative generation methods.
-            We then survey recent progress in large-scale DLMs, efficient inference, training
-            objectives, and post-training, including reinforcement learning for reasoning and
-            alignment.
-          </p>
-          <p>
-            Throughout the tutorial, we treat DLMs not as a solved replacement for autoregressive
-            language models, but as a rapidly developing paradigm whose efficiency claims,
-            controllability, practical assessment, and deployment implications require careful
-            examination. We close by discussing representative open directions, from broader
-            formulations such as flow-based language modeling to reliability, safety, and social
-            bias as key requirements for the social acceptability of DLMs.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="schedule">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Schedule</h2>
         <div class="content">
-          <p>The date, room, and detailed timetable will be announced here. <strong>TBA</strong></p>
+          <dl class="session-info">
+            <dt>Date</dt>
+            <dd>Tuesday, November 10, 2026</dd>
+            <dt>Time</dt>
+            <dd>14:00 – 17:30 <span class="note">(local time)</span></dd>
+            <dt>Place</dt>
+            <dd>Muhe Hall B, Hengqin, China</dd>
+          </dl>
+          <!-- スライドが公開されたら disabled を外してリンクにする -->
+          <div class="has-text-centered">
+            <button class="button is-normal is-dark" disabled title="Coming soon">
+              <span class="icon"><i class="fas fa-download"></i></span>
+              <span>Download Slides</span>
+            </button>
+          </div>
           <!-- 時間割が決まったら下のテーブルのコメントを外して埋める
-          <p><strong>Date TBA &middot; Room TBA</strong> (all times are local time)</p>
           <table class="table is-fullwidth schedule-table">
             <tbody>
               <tr>
@@ -280,6 +287,33 @@
             </tbody>
           </table>
           -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion language models (DLMs) replace left-to-right decoding with iterative denoising:
+            one model call can decide several tokens, and each prediction can see context on both
+            sides. DLMs have now reached LLM scale, with open-weight models and commercial APIs.
+            This tutorial gives NLP researchers an entry point and a map of the field, assuming no
+            background in diffusion. We first define diffusion for text, relate it to autoregressive
+            and masked language modeling, and survey how large DLMs are built. We then show how
+            inference, training, and post-training, including reinforcement learning, must be
+            rethought around this new generation process. We close with two open frontiers:
+            evaluating the reliability, safety, and social bias of DLMs, and moving beyond discrete
+            diffusion to continuous flow-based language models. Throughout, we separate demonstrated
+            results from open problems, so that participants can place new papers on this map and
+            check reported speedups for themselves.
+          </p>
         </div>
       </div>
     </div>
@@ -309,37 +343,27 @@
 </section>
 
 
-<section class="section" id="contact">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Contact</h2>
-        <div class="content has-text-justified">
-          <p>
-            Questions about the tutorial are welcome. Please get in touch with
-            <a href="https://daioba.github.io/">Daisuke Oba</a> or
-            <a href="https://danushka.net/">Danushka Bollegala</a>.
-            <!-- TODO: 公開してよい連絡先メールがあれば mailto: に差し替え -->
-          </p>
+        <h2 class="title is-3">BibTeX</h2>
+        <div class="content">
+          <p>Provisional entry; it will be updated once the tutorial abstract appears in the ACL Anthology.</p>
+          <!-- Anthology 公開後に正式な bibtex (url, doi, pages 付き) に差し替え -->
+          <pre><code>@inproceedings{oba-bollegala-2026-diffusion,
+    title = "Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation",
+    author = "Oba, Daisuke  and
+      Bollegala, Danushka",
+    booktitle = "Proceedings of AACL-IJCNLP 2026: Tutorial Abstracts",
+    month = nov,
+    year = "2026",
+    address = "Hengqin, China",
+    publisher = "Association for Computational Linguistics"
+}</code></pre>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3">BibTeX</h2>
-    <p>The citation will be added once the tutorial abstract appears in the ACL Anthology. <strong>TBA</strong></p>
-    <!-- Anthology 公開後に下を有効化して正式な bibtex に差し替え
-    <pre><code>@inproceedings{oba-bollegala-2026-diffusion,
-  title     = {Diffusion Language Models: Foundations and Frontiers of Non-Autoregressive Language Generation},
-  author    = {Oba, Daisuke and Bollegala, Danushka},
-  booktitle = {Proceedings of the 2026 Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics: Tutorial Abstracts},
-  year      = {2026},
-}</code></pre>
-    -->
   </div>
 </section>
 
