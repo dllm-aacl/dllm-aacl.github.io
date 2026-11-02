@@ -30,6 +30,7 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script defer src="./static/js/index.js"></script>
   <script defer src="./static/js/title-diffusion.js"></script>
+  <script defer src="./static/js/reading-list.js"></script>
 
   <style>
     /* --- presenters --- */
@@ -158,12 +159,21 @@
     }
 
     /* --- reading list --- */
-    .reading-list p {
-      margin-bottom: 0.9rem;
+    .content.reading-list p:not(:last-child) {
+      margin-bottom: 0.6rem;
     }
 
     .reading-list .meta {
       color: #666;
+    }
+
+    .reading-list .nowrap {
+      white-space: nowrap;
+    }
+
+    .reading-list h3::before {
+      content: "■";
+      margin-right: 0.4em;
     }
 
     /* --- in-page nav --- */
@@ -339,16 +349,9 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Reading List</h2>
-        <div class="content has-text-justified reading-list">
+        <div class="content reading-list">
+          <!-- 中身は reading-list.md に書く(static/js/reading-list.js がここに描画する)。1本もない間は下の TBA が出る -->
           <p>The papers referenced in the tutorial will be listed here. <strong>TBA</strong></p>
-
-          <!-- 論文が固まったら、セクション見出しごとに下のフォーマットで並べる
-          <h3 class="title is-5">Foundations</h3>
-          <p>
-            <strong><a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener">Paper title</a></strong><br>
-            <span class="meta">Author et al., Year — Venue</span>
-          </p>
-          -->
         </div>
       </div>
     </div>
