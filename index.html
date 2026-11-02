@@ -29,6 +29,7 @@
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script defer src="./static/js/index.js"></script>
+  <script defer src="./static/js/title-diffusion.js"></script>
 
   <style>
     /* --- presenters --- */
@@ -80,7 +81,19 @@
 
     /* --- hero: tighten the gap above the session info --- */
     .hero .hero-body {
-      padding-bottom: 1.5rem;
+      padding-bottom: 0.25rem;
+    }
+
+    /* --- divider line between sections (matches the text column width) --- */
+    .section + .section {
+      padding-top: 0;
+    }
+
+    .section + .section .column.is-four-fifths::before {
+      content: "";
+      display: block;
+      margin-bottom: 3rem;
+      border-top: 1px solid #e6e6e6;
     }
 
     /* --- session info (date / time / place) --- */
