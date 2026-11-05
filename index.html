@@ -158,6 +158,18 @@
       color: #777;
     }
 
+    /* --- schedule image --- */
+    .schedule-image {
+      display: block;
+      margin-bottom: 1.75rem;
+    }
+
+    .schedule-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* --- reading list --- */
     .content.reading-list p:not(:last-child) {
       margin-bottom: 0.6rem;
@@ -277,11 +289,13 @@
           <dl class="session-info">
             <dt>Date</dt>
             <dd>Tuesday, November 10, 2026</dd>
-            <dt>Time</dt>
-            <dd>14:00 – 17:30 <span class="note">(local time)</span></dd>
             <dt>Place</dt>
             <dd>Muhe Hall B, Hengqin, China</dd>
           </dl>
+          <a href="./static/images/schedule-afternoon.png" class="schedule-image">
+            <img src="./static/images/schedule-afternoon.png"
+                 alt="Tutorial schedule, Tuesday, November 10, 14:00–17:30. 14:00–15:00 Part I, Foundations and Landscape: Introduction, Foundations, Model Families and Scaling. 15:00–15:30 Part II, Inference and Training: Efficient Inference. 15:30–16:00 Coffee break. 16:00–16:30 Part II continued: Training Objectives, Post-training and Alignment. 16:30–17:30 Part III, Open Frontiers: Responsible Deployment, Conclusion and Q&amp;A.">
+          </a>
           <!-- スライドが公開されたら disabled を外してリンクにする -->
           <div class="has-text-centered">
             <button class="button is-normal is-dark" disabled title="Coming soon">
