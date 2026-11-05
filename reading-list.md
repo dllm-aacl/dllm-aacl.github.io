@@ -335,6 +335,7 @@
     Koshiro Saito, Daisuke Oba, Danushka Bollegala, Naoaki Okazaki  
     arXiv, 2026 · [arXiv:2610.27584](https://arxiv.org/abs/2610.27584)
 
+<!-- 一旦ページに出さない（2026-11-06）。出すときは、この行と節の最後の行を消す
 ## Open Frontiers: Flow LMs（AACL_slide_add.pdf の p110–112）
 
 1. **Large Flow Language Models**  
@@ -362,3 +363,4 @@
 6. **Continuous Diffusion Scales Competitively with Discrete Diffusion for Language**  
     Zhihan Yang, Wei Guo, Shuibai Zhang, Subham Sekhar Sahoo, Yongxin Chen, Arash Vahdat, Morteza Mardani, John Thickstun  
     arXiv, 2026 · [arXiv:2605.18530](https://arxiv.org/abs/2605.18530)
+（ここまで一旦ページに出さない） -->
