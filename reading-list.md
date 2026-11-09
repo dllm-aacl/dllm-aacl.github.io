@@ -302,38 +302,70 @@
     arXiv, 2024 · [arXiv:2412.06134](https://arxiv.org/abs/2412.06134)  
     ※ スライドの「OpenBBQ」。論文の中のベンチマークの名前は Open-BBQ
 
-7. **Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations**  
+7. **PAI-Diffusion: Constructing and Serving a Family of Open Chinese Diffusion Models for Text-to-image Synthesis on the Cloud**  
+    Chengyu Wang, Zhongjie Duan, Bingyan Liu, Xinyi Zou, Cen Chen, Kui Jia, Jun Huang  
+    ACL System Demonstrations, 2024 · [arXiv:2309.05534](https://arxiv.org/abs/2309.05534)
+
+8. **Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations**  
     Jiho Jin, Woosung Kang, Junho Myung, Alice Oh  
     Findings of ACL, 2025 · [arXiv:2503.06987](https://arxiv.org/abs/2503.06987)  
     ※ スライドの「BBG」
 
-8. **LaViDa: A Large Diffusion Language Model for Multimodal Understanding**  
+9. **LaViDa: A Large Diffusion Language Model for Multimodal Understanding**  
     Shufan Li, Konstantinos Kallidromitis, Hritik Bansal, Akash Gokul, Yusuke Kato, Kazuki Kozuka, Jason Kuen, Zhe Lin, Kai-Wei Chang, Aditya Grover  
     NeurIPS, 2025 · [arXiv:2505.16839](https://arxiv.org/abs/2505.16839)
 
-9. **The Diffusion Duality**  
+10. **The Diffusion Duality**  
     Subham Sekhar Sahoo, Justin Deschenaux, Aaron Gokaslan, Guanghan Wang, Justin Chiu, Volodymyr Kuleshov  
     ICML, 2025 · [arXiv:2506.10892](https://arxiv.org/abs/2506.10892)
 
-10. **JBBQ: Japanese Bias Benchmark for Analyzing Social Biases in Large Language Models**  
+11. **Emergence and Evolution of Interpretable Concepts in Diffusion Models**  
+    Berk Tinaz, Zalan Fabian, Mahdi Soltanolkotabi  
+    NeurIPS, 2025 · [arXiv:2504.15473](https://arxiv.org/abs/2504.15473)
+
+12. **MuLan: Adapting Multilingual Diffusion Models for Hundreds of Languages with Negligible Cost**  
+    Sen Xing, Muyan Zhong, Zeqiang Lai, Liangchen Li, Jiawen Liu, Yaohui Wang, Jifeng Dai, Wenhai Wang  
+    ICML, 2025 · [arXiv:2412.01271](https://arxiv.org/abs/2412.01271)
+
+13. **JBBQ: Japanese Bias Benchmark for Analyzing Social Biases in Large Language Models**  
     Hitomi Yanaka, Namgi Han, Ryoma Kumon, Jie Lu, Masashi Takeshita, Ryo Sekizawa, Taisei Kato, Hiromi Arai  
     GeBNLP Workshop at ACL, 2025 · [arXiv:2406.02050](https://arxiv.org/abs/2406.02050)
 
-11. **ELF: Embedded Language Flows**  
+14. **MMaDA: Multimodal Large Diffusion Language Models**  
+    Ling Yang, Ye Tian, Bowen Li, Xinchen Zhang, Ke Shen, Yunhai Tong, Mengdi Wang  
+    NeurIPS, 2025 · [arXiv:2505.15809](https://arxiv.org/abs/2505.15809)
+
+15. **Algorithmic Monocultures in Hiring**  
+    Rishi Bommasani, Sarah H. Bana, Kathleen A. Creel, Dan Jurafsky, Percy Liang  
+    FAccT, 2026 · [arXiv:2605.27371](https://arxiv.org/abs/2605.27371)
+
+16. **ELF: Embedded Language Flows**  
     Keya Hu, Linlu Qiu, Yiyang Lu, Hanhong Zhao, Tianhong Li, Yoon Kim, Jacob Andreas, Kaiming He  
     arXiv, 2026 · [arXiv:2605.10938](https://arxiv.org/abs/2605.10938)
 
-12. **Flow Map Language Models: One-step Language Modeling via Continuous Denoising**  
+17. **Flow Map Language Models: One-step Language Modeling via Continuous Denoising**  
     Chanhyuk Lee, Jaehoon Yoo, Manan Agarwal, Sheel Shah, Jerry Huang, Aditi Raghunathan, Seunghoon Hong, Nicholas M. Boffi, Jinwoo Kim  
     NeurIPS, 2026 · [arXiv:2602.16813](https://arxiv.org/abs/2602.16813)
 
-13. **TrustLDM: Benchmarking Trustworthiness in Language Diffusion Models**  
+18. **TrustLDM: Benchmarking Trustworthiness in Language Diffusion Models**  
     Yichuan Mo, Yukun Jiang, Yanbo Shi, Mingjie Li, Michael Backes, Yang Zhang, Yisen Wang  
     arXiv, 2026 · [arXiv:2606.00023](https://arxiv.org/abs/2606.00023)
 
-14. **Beyond Model Weights: Sampling-Dependent Fairness in Diffusion Language Models**  
+19. **Beyond Model Weights: Sampling-Dependent Fairness in Diffusion Language Models**  
     Koshiro Saito, Daisuke Oba, Danushka Bollegala, Naoaki Okazaki  
     arXiv, 2026 · [arXiv:2610.27584](https://arxiv.org/abs/2610.27584)
+
+20. **DLM-Scope: Mechanistic Interpretability of Diffusion Language Models via Sparse Autoencoders**  
+    Xu Wang, Bingqing Jiang, Yu Wan, Baosong Yang, Lingpeng Kong, Difan Zou  
+    ICML, 2026 · [arXiv:2602.05859](https://arxiv.org/abs/2602.05859)
+
+21. **Toward Safer Diffusion Language Models: Discovery and Mitigation of Priming Vulnerability**  
+    Shojiro Yamabe, Jun Sakuma  
+    ICLR, 2026 · [arXiv:2510.00565](https://arxiv.org/abs/2510.00565)
+
+22. **Sumi: Open Uniform Diffusion Language Model from Scratch**  
+    Mengyu Ye, Keito Kudo, Wataru Ikeda, Ryosuke Matsuda, Keisuke Sakaguchi, Jun Suzuki  
+    arXiv, 2026 · [arXiv:2606.19005](https://arxiv.org/abs/2606.19005)
 
 <!-- 一旦ページに出さない（2026-11-06）。出すときは、この行と節の最後の行を消す
 ## Open Frontiers: Flow LMs（AACL_slide_add.pdf の p110–112）
